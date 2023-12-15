@@ -12,6 +12,9 @@ LIB_OUTPUT = libuserauth.dylib
 LIB_OUTPUT_SO = libuserauth.so
 TEST_OUTPUT = test_user_auth
 
+# dSYM files
+DSYM_OUTPUT = $(LIB_OUTPUT).dSYM $(LIB_OUTPUT_SO).dSYM $(TEST_OUTPUT).dSYM
+
 # Default target
 all: dylib so test
 
@@ -29,7 +32,8 @@ test: $(SRC) $(TEST_SRC)
 
 # Target for cleaning up
 clean:
-	rm -f $(LIB_OUTPUT) $(TEST_OUTPUT)
+	rm -f $(LIB_OUTPUT) $(LIB_OUTPUT_SO) $(TEST_OUTPUT)
+	rm -rf $(DSYM_OUTPUT)
 
 # Phony targets
 .PHONY: all dylib test clean
