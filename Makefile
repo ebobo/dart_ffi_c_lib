@@ -9,14 +9,19 @@ TEST_SRC = test_user_auth.c
 
 # Output files
 LIB_OUTPUT = libuserauth.dylib
+LIB_OUTPUT_SO = libuserauth.so
 TEST_OUTPUT = test_user_auth
 
 # Default target
-all: dylib test
+all: dylib so test
 
 # Target for building the dynamic library
 dylib: $(SRC)
 	$(CC) $(CFLAGS) $(DYLIB_FLAGS) -o $(LIB_OUTPUT) $(SRC)
+
+# Target for building the Linux shared library
+so: $(SRC)
+	$(CC) $(CFLAGS) $(DYLIB_FLAGS) -o $(LIB_OUTPUT_SO) $(SRC)
 
 # Target for compiling the test program
 test: $(SRC) $(TEST_SRC)
