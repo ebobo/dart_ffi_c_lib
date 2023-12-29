@@ -1,0 +1,24 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     test_user_auth
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _am4_access_control_prompt_needed, symObjAddr: 0x0, symBinAddr: 0x100003350, symSize: 0x68 }
+  - { offsetInCU: 0x47, offset: 0x47, size: 0x8, addend: 0x0, symName: _am4_access_control_prompt_needed, symObjAddr: 0x0, symBinAddr: 0x100003350, symSize: 0x68 }
+  - { offsetInCU: 0x7D, offset: 0x7D, size: 0x8, addend: 0x0, symName: _am4_access_control_get_current_user, symObjAddr: 0x68, symBinAddr: 0x1000033B8, symSize: 0xC }
+  - { offsetInCU: 0x96, offset: 0x96, size: 0x8, addend: 0x0, symName: _am4_access_control_verify_password, symObjAddr: 0x74, symBinAddr: 0x1000033C4, symSize: 0xE8 }
+  - { offsetInCU: 0xCC, offset: 0xCC, size: 0x8, addend: 0x0, symName: _am4_access_control_approve_new_current_user, symObjAddr: 0x15C, symBinAddr: 0x1000034AC, symSize: 0x18 }
+  - { offsetInCU: 0xF4, offset: 0xF4, size: 0x8, addend: 0x0, symName: _am4_access_control_process_timeout, symObjAddr: 0x174, symBinAddr: 0x1000034C4, symSize: 0x8 }
+  - { offsetInCU: 0x10D, offset: 0x10D, size: 0x8, addend: 0x0, symName: _am4_access_control_process_cancel, symObjAddr: 0x17C, symBinAddr: 0x1000034CC, symSize: 0x8 }
+  - { offsetInCU: 0x126, offset: 0x126, size: 0x8, addend: 0x0, symName: _am4_access_control_user_have_admin_rights, symObjAddr: 0x184, symBinAddr: 0x1000034D4, symSize: 0xA4 }
+  - { offsetInCU: 0x14E, offset: 0x14E, size: 0x8, addend: 0x0, symName: _am4_access_control_get_database_file, symObjAddr: 0x228, symBinAddr: 0x100003578, symSize: 0xE0 }
+  - { offsetInCU: 0x192, offset: 0x192, size: 0x8, addend: 0x0, symName: _am4_access_control_compute_passwordhash, symObjAddr: 0x308, symBinAddr: 0x100003658, symSize: 0xD0 }
+  - { offsetInCU: 0x1E4, offset: 0x1E4, size: 0x8, addend: 0x0, symName: _am4_access_control_verify_database_file, symObjAddr: 0x3D8, symBinAddr: 0x100003728, symSize: 0xA4 }
+  - { offsetInCU: 0x26, offset: 0x466, size: 0x8, addend: 0x0, symName: _test_am4_access_control_prompt_needed, symObjAddr: 0x0, symBinAddr: 0x1000037CC, symSize: 0xC8 }
+  - { offsetInCU: 0x41, offset: 0x481, size: 0x8, addend: 0x0, symName: _test_am4_access_control_prompt_needed, symObjAddr: 0x0, symBinAddr: 0x1000037CC, symSize: 0xC8 }
+  - { offsetInCU: 0x73, offset: 0x4B3, size: 0x8, addend: 0x0, symName: _test_am4_access_control_get_current_user, symObjAddr: 0xC8, symBinAddr: 0x100003894, symSize: 0x6C }
+  - { offsetInCU: 0x88, offset: 0x4C8, size: 0x8, addend: 0x0, symName: _test_am4_access_control_verify_password, symObjAddr: 0x134, symBinAddr: 0x100003900, symSize: 0x70 }
+  - { offsetInCU: 0x9D, offset: 0x4DD, size: 0x8, addend: 0x0, symName: _test_am4_access_control_approve_new_current_user, symObjAddr: 0x1A4, symBinAddr: 0x100003970, symSize: 0x6C }
+  - { offsetInCU: 0xB2, offset: 0x4F2, size: 0x8, addend: 0x0, symName: _test_am4_access_control_process_timeout, symObjAddr: 0x210, symBinAddr: 0x1000039DC, symSize: 0x60 }
+  - { offsetInCU: 0xC7, offset: 0x507, size: 0x8, addend: 0x0, symName: _test_am4_access_control_process_cancel, symObjAddr: 0x270, symBinAddr: 0x100003A3C, symSize: 0x60 }
+  - { offsetInCU: 0xDC, offset: 0x51C, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x2D0, symBinAddr: 0x100003A9C, symSize: 0x4C }
+...

@@ -15,8 +15,8 @@ TEST_OUTPUT = test_user_auth
 # dSYM files
 DSYM_OUTPUT = $(LIB_OUTPUT).dSYM $(LIB_OUTPUT_SO).dSYM $(TEST_OUTPUT).dSYM
 
-# Default target
-all: dylib so test
+# Default target, can not cross compile a so file on macOS
+all: dylib test
 
 # Target for building the dynamic library
 dylib: $(SRC)

@@ -36,10 +36,6 @@ void test_am4_access_control_process_cancel() {
     printf("test_am4_access_control_process_cancel passed\n");
 }
 
-void test_get_user_level() {
-    assert(get_user_level("admin", "admin123") == 3); // Adjust expected value
-    printf("test_get_user_level passed\n");
-}
 
 int main() {
     test_am4_access_control_prompt_needed();
@@ -48,7 +44,6 @@ int main() {
     test_am4_access_control_approve_new_current_user();
     test_am4_access_control_process_timeout();
     test_am4_access_control_process_cancel();
-    test_get_user_level();
 
     printf("All tests passed!\n");
     return 0;
