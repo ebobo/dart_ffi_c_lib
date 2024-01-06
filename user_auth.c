@@ -62,7 +62,7 @@ char * am4_access_control_get_database_file(void) {
     char *buffer;
     long fileLength;
 
-    file = fopen("/Users/qixu/projects/flutter/flutter_ffi/c_lib/userconfig.yaml", "rb"); // Open the file in binary mode
+    file = fopen("/Users/qixu/projects/flutter/flutter_ffi/c_lib/systemconfig.yaml", "rb"); // Open the file in binary mode
     if (file == NULL) {
         return NULL; // File not found or unable to open
     }
