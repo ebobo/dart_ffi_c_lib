@@ -1,0 +1,96 @@
+## System section should describe the system and keep version of file
+## demo
+System:
+  UserName: petter
+  SiteName: Icon of the Seas
+  FileVersion: '1'
+  PasswordPolicyMinimumLength: 8
+  PasswordPolicyUpperLetter: true
+  PasswordPolicyLowerLetter: true
+  PasswordPolicyNumber: true
+  PasswordPolicySpecialCharacter: true
+
+  ## Computer section should list all computers in system
+  Computers:
+    - Name: petter-X10SLQ
+      Role: Mainserver
+    - Name: bridgefire
+      Role:
+    - Name: conning
+      Role:
+    - Name: isems1
+      Role:
+    - Name: ecr
+      Role:
+    - Name: reception
+      Role:
+  ## Roles section defines roles of individuals and
+  ## their access level and scope
+  ## maxlevel: should define highest access level for this role
+  ## scope defines the computers with this role defined as a list or
+  ## ALL defines all computers in system
+  Roles:
+    - Name: bridge-officers
+      MaxLevel: 2
+      Scope:
+        - bridgefire
+        - conning
+        - isems1
+        - qi-pc
+    - Name: engine-officers
+      MaxLevel: 2
+      Scope:
+        - ecr
+    - Name: engineers
+      MaxLevel: 3
+      Scope:
+        - ALL
+    - Name: reception-crew
+      MaxLevel: 1
+      Scope:
+        - reception
+    - Name: service
+      MaxLevel: 4
+      Scope:
+        - isems1
+  ## The Users section defines the individual users
+  ## The role membership of each user is defined as a list
+  Users:
+    - LoginName: petter
+      FullName: Petter Haave
+      PasswordHash: $2y$05$KTK26txVwshAOjFoBv4FXuKdMGoVo22zASlL2wRXlbiorNlYsa2J2
+      IsAdmin: true
+      Roles:
+        - bridge-officers
+        - engine-officers
+        - engineers
+      Expires:
+    - LoginName: espen
+      FullName: Espen Olesen
+      PasswordHash: $2y$12$tAoVlMBA7fOhxZjOKmotL./caIyIrbF2uKlDEb3YYQLzWbQHrmUeG
+      IsAdmin: false
+      Roles:
+        - engine-officers
+      Expires:
+    - LoginName: hans
+      FullName: 'Hans Hansen'
+      Expires: 2024-02-05T10:30:00.1Z.
+      PasswordHash: $2y$05$PvhaTZSXmv0PrihY90hnIuw55dWzDjAM2w4aOgNjsAujgOudVE846
+      IsAdmin: false
+      Roles:
+        - reception-crew
+    - LoginName: geir
+      FullName: 'Geir Ove Monsen'
+      Expires: 2024-02-05T10:30:00.1Z.
+      PasswordHash: $2y$05$PvhaTZSXmv0PBihY90UnCuw37dWzDjAM2w4aOgNjsAuC.OudVE847
+      IsAdmin: false
+      Roles:
+        - engineers
+        - service
+    - LoginName: atj
+      FullName: Atle Jonland
+      PasswordHash: $2y$05$PvhaTZSXmv0PBihY90UnCuw30dWzFjTM1w4aOFNjsAuC.OudV.3zq
+      IsAdmin: false
+      Roles:
+        - service
+      Expires:

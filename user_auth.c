@@ -57,34 +57,52 @@ bool  am4_access_control_user_have_admin_rights(char * user) {
     return false;
 }
 
+// return the file content
+// char * am4_access_control_get_database_file(void) {
+//     FILE *file;
+//     char *buffer;
+//     long fileLength;
+
+//     file = fopen("/Users/qixu/projects/flutter/flutter_ffi/c_lib/systemconfig.yaml", "rb"); // Open the file in binary mode
+//     if (file == NULL) {
+//         return NULL; // File not found or unable to open
+//     }
+
+//     // Seek to the end of the file to determine its size
+//     fseek(file, 0, SEEK_END);
+//     fileLength = ftell(file);
+//     rewind(file);
+
+//     // Allocate memory for the entire content
+//     buffer = (char *)malloc(fileLength + 1);
+//     if (buffer == NULL) {
+//         fclose(file);
+//         return NULL; // Memory allocation failed
+//     }
+
+//     // Read the file into the buffer
+//     fread(buffer, 1, fileLength, file);
+//     buffer[fileLength] = '\0'; // Null-terminate the string
+
+//     fclose(file);
+//     return buffer;
+// }
+
+// return the file path
 char * am4_access_control_get_database_file(void) {
-    FILE *file;
-    char *buffer;
-    long fileLength;
+    // Define the file path
+    const char *filePath = "/Users/qixu/projects/flutter/flutter_ffi/c_lib/systemconfig.yaml";
 
-    file = fopen("/Users/qixu/projects/flutter/flutter_ffi/c_lib/systemconfig.yaml", "rb"); // Open the file in binary mode
-    if (file == NULL) {
-        return NULL; // File not found or unable to open
-    }
-
-    // Seek to the end of the file to determine its size
-    fseek(file, 0, SEEK_END);
-    fileLength = ftell(file);
-    rewind(file);
-
-    // Allocate memory for the entire content
-    buffer = (char *)malloc(fileLength + 1);
-    if (buffer == NULL) {
-        fclose(file);
+    // Allocate memory for the file path
+    char *path = malloc(strlen(filePath) + 1);
+    if (path == NULL) {
         return NULL; // Memory allocation failed
     }
 
-    // Read the file into the buffer
-    fread(buffer, 1, fileLength, file);
-    buffer[fileLength] = '\0'; // Null-terminate the string
+    // Copy the file path into the allocated memory
+    strcpy(path, filePath);
 
-    fclose(file);
-    return buffer;
+    return path;
 }
 
 // Will return empty string "" if password complexity is not met
