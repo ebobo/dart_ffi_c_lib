@@ -2,6 +2,9 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include "user_auth.h"
+
 
 bool am4_access_control_prompt_needed(int argc, char ** argv) {
     // Implement logic
@@ -22,8 +25,8 @@ bool am4_access_control_verify_password(char * user, char * password) {
     // Implement logic
     if (strcmp(user, "petter") == 0 && strcmp(password, "hvaforno") == 0) {
         return true;
-    } else if (strcmp(user, "espen") == 0 && strcmp(password, "hvaforno") != 0) {
-        return false;
+    } else if (strcmp(user, "espen") == 0 && strcmp(password, "hvaforno") == 0) {
+        return true;
     }
     return false;
 }
@@ -86,9 +89,9 @@ char * am4_access_control_get_database_file(void) {
 
 // Will return empty string "" if password complexity is not met
 char * am4_access_control_compute_passwordhash(char * username, char * password) {
-    // Example implementation: concatenate username and password
-    if (username == NULL || password == NULL) {
-        return NULL;
+    // concatenate username and password
+    if (username == NULL || password == NULL || !isPasswordComplexEnough(password)) {
+        return NULL; // Return empty string if password complexity is not met
     }
 
     size_t hashLength = strlen(username) + strlen(password) + 1;
@@ -96,13 +99,13 @@ char * am4_access_control_compute_passwordhash(char * username, char * password)
 
     if (hash != NULL) {
         strcpy(hash, username);
-        strcat(hash, password); // In a real scenario, use a proper hashing function
+        strcat(hash, password); // In a real scenario, we need use a proper hashing function
     }
 
     return hash;
 }
 
-bool am4_access_control_verify_database_file(char * tmpfilename) {
+bool am4_access_control_distribute_database_file(char * tmpfilename) {
       if (tmpfilename == NULL) {
         return false;
     }
@@ -114,4 +117,36 @@ bool am4_access_control_verify_database_file(char * tmpfilename) {
 
     fclose(file);
     return true;
+}
+
+// Lock the database file
+bool am4_access_control_lock_database_file(void) {
+    return true;
+}
+
+// Discard the lock on the database file
+bool am4_access_control_discard_database_lock(void) {
+    return true;
+}
+
+// Helper function to check password complexity
+bool isPasswordComplexEnough(const char *password) {
+    bool hasUpper = false, hasLower = false, hasDigit = false, hasSpecial = false;
+    int length = strlen(password);
+
+    // Minimum length check
+    const int minPasswordLength = 8;
+    if (length < minPasswordLength) return false;
+
+    // Check for uppercase, lowercase, digits, and special characters
+    for (int i = 0; i < length; ++i) {
+        if (isupper(password[i])) hasUpper = true;
+        else if (islower(password[i])) hasLower = true;
+        else if (isdigit(password[i])) hasDigit = true;
+        else hasSpecial = true;
+
+        if (hasUpper && hasLower && hasDigit && hasSpecial) return true; // All conditions met
+    }
+
+    return false;
 }
