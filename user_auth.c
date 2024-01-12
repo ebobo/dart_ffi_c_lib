@@ -21,17 +21,17 @@ char * am4_access_control_get_current_user(void) {
     return "petter";
 }
 
-bool am4_access_control_verify_password(char * user, char * password) {
+bool am4_access_control_verify_password(const char * username, const char * password) {
     // Implement logic
-    if (strcmp(user, "petter") == 0 && strcmp(password, "hvaforno") == 0) {
+    if (strcmp(username, "petter") == 0 && strcmp(password, "hvaforno") == 0) {
         return true;
-    } else if (strcmp(user, "espen") == 0 && strcmp(password, "hvaforno") == 0) {
+    } else if (strcmp(username, "espen") == 0 && strcmp(password, "hvaforno") == 0) {
         return true;
     }
     return false;
 }
 
-bool am4_access_control_approve_new_current_user(char * user) {
+bool am4_access_control_approve_new_current_user(const char * username) {
     // Implement logic
     return true;
 }
@@ -47,11 +47,11 @@ int am4_access_control_process_cancel(void) {
 }
 
 // user management
-bool  am4_access_control_user_have_admin_rights(char * user) {
+bool  am4_access_control_user_have_admin_rights(const char * username) {
     // Implement logic
-    if (strcmp(user, "petter") == 0) {
+    if (strcmp(username, "petter") == 0) {
         return true;
-    } else if (strcmp(user, "espen") == 0) {
+    } else if (strcmp(username, "espen") == 0) {
         return false;
     }
     return false;
@@ -106,24 +106,23 @@ char * am4_access_control_get_database_file(void) {
 }
 
 // Will return empty string "" if password complexity is not met
-char * am4_access_control_compute_passwordhash(char * username, char * password) {
+char * am4_access_control_compute_passwordhash(const char * password) {
     // concatenate username and password
-    if (username == NULL || password == NULL || !isPasswordComplexEnough(password)) {
+    if ( password == NULL || !isPasswordComplexEnough(password)) {
         return NULL; // Return empty string if password complexity is not met
     }
 
-    size_t hashLength = strlen(username) + strlen(password) + 1;
+    size_t hashLength =  strlen(password) + 1;
     char *hash = malloc(hashLength);
 
     if (hash != NULL) {
-        strcpy(hash, username);
         strcat(hash, password); // In a real scenario, we need use a proper hashing function
     }
 
     return hash;
 }
 
-bool am4_access_control_distribute_database_file(char * tmpfilename) {
+bool am4_access_control_distribute_database_file(const char * tmpfilename) {
       if (tmpfilename == NULL) {
         return false;
     }

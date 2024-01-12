@@ -8,22 +8,22 @@ System:
   PasswordPolicyUpperLetter: true
   PasswordPolicyLowerLetter: true
   PasswordPolicyNumber: true
-  PasswordPolicySpecialCharacter: true
+  PasswordPolicySpecialCharacter: false
 
   ## Computer section should list all computers in system
   Computers:
     - Name: petter-X10SLQ
-      Role: Mainserver
+      ComputerRole: Mainserver
     - Name: bridgefire
-      Role:
+      ComputerRole:
     - Name: conning
-      Role:
+      ComputerRole:
     - Name: isems1
-      Role:
+      ComputerRole:
     - Name: ecr
-      Role:
+      ComputerRole:
     - Name: reception
-      Role:
+      ComputerRole:
   ## Roles section defines roles of individuals and
   ## their access level and scope
   ## maxlevel: should define highest access level for this role
@@ -36,11 +36,11 @@ System:
         - bridgefire
         - conning
         - isems1
-        - qi-pc
     - Name: engine-officers
       MaxLevel: 2
       Scope:
         - ecr
+        - qi-pc
     - Name: engineers
       MaxLevel: 3
       Scope:
