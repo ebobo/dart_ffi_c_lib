@@ -7,7 +7,8 @@ DYLIB_FLAGS = -shared -fPIC
 SRC = user_auth.c
 TEST_SRC = test_user_auth.c
 
-# Output files
+# Output files. 
+# save the .dylib to /usr/local/lib on Mac
 LIB_OUTPUT = libam4_access_control.dylib
 LIB_OUTPUT_SO = libam4_access_control.so
 TEST_OUTPUT = test_user_auth

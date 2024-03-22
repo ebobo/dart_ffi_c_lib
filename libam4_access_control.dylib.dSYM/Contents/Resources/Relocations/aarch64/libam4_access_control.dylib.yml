@@ -1,0 +1,20 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     libam4_access_control.dylib
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _am4_access_control_prompt_needed, symObjAddr: 0x0, symBinAddr: 0x3818, symSize: 0x68 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _am4_access_control_distribute_database_file, symObjAddr: 0x600, symBinAddr: 0x3E18, symSize: 0x60 }
+  - { offsetInCU: 0x66, offset: 0x66, size: 0x8, addend: 0x0, symName: _am4_access_control_distribute_database_file.fishy, symObjAddr: 0x1DB2, symBinAddr: 0x8000, symSize: 0x0 }
+  - { offsetInCU: 0x78, offset: 0x78, size: 0x8, addend: 0x0, symName: _am4_access_control_prompt_needed, symObjAddr: 0x0, symBinAddr: 0x3818, symSize: 0x68 }
+  - { offsetInCU: 0xAE, offset: 0xAE, size: 0x8, addend: 0x0, symName: _am4_access_control_get_current_user, symObjAddr: 0x68, symBinAddr: 0x3880, symSize: 0x8 }
+  - { offsetInCU: 0xC7, offset: 0xC7, size: 0x8, addend: 0x0, symName: _am4_access_control_verify_password, symObjAddr: 0x70, symBinAddr: 0x3888, symSize: 0x140 }
+  - { offsetInCU: 0xFD, offset: 0xFD, size: 0x8, addend: 0x0, symName: _am4_access_control_approve_new_current_user, symObjAddr: 0x1B0, symBinAddr: 0x39C8, symSize: 0x18 }
+  - { offsetInCU: 0x125, offset: 0x125, size: 0x8, addend: 0x0, symName: _am4_access_control_process_timeout, symObjAddr: 0x1C8, symBinAddr: 0x39E0, symSize: 0x8 }
+  - { offsetInCU: 0x13E, offset: 0x13E, size: 0x8, addend: 0x0, symName: _am4_access_control_process_cancel, symObjAddr: 0x1D0, symBinAddr: 0x39E8, symSize: 0x8 }
+  - { offsetInCU: 0x157, offset: 0x157, size: 0x8, addend: 0x0, symName: _am4_access_control_user_have_admin_rights, symObjAddr: 0x1D8, symBinAddr: 0x39F0, symSize: 0xDC }
+  - { offsetInCU: 0x17F, offset: 0x17F, size: 0x8, addend: 0x0, symName: _am4_access_control_get_database_file, symObjAddr: 0x2B4, symBinAddr: 0x3ACC, symSize: 0x74 }
+  - { offsetInCU: 0x1B5, offset: 0x1B5, size: 0x8, addend: 0x0, symName: _am4_access_control_compute_passwordhash, symObjAddr: 0x328, symBinAddr: 0x3B40, symSize: 0x9C }
+  - { offsetInCU: 0x1F9, offset: 0x1F9, size: 0x8, addend: 0x0, symName: _isPasswordComplexEnough, symObjAddr: 0x3C4, symBinAddr: 0x3BDC, symSize: 0x198 }
+  - { offsetInCU: 0x291, offset: 0x291, size: 0x8, addend: 0x0, symName: _am4_access_control_store_database_file, symObjAddr: 0x55C, symBinAddr: 0x3D74, symSize: 0xA4 }
+  - { offsetInCU: 0x2C7, offset: 0x2C7, size: 0x8, addend: 0x0, symName: _am4_access_control_get_hostname, symObjAddr: 0x660, symBinAddr: 0x3E78, symSize: 0xC }
+...

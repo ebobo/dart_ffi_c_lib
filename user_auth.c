@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <unistd.h>
 #include "user_auth.h"
 
 
@@ -16,9 +17,11 @@ bool am4_access_control_prompt_needed(int argc, char ** argv) {
     return true;
 }
 
-char * am4_access_control_get_current_user(void) {
+const char * am4_access_control_get_current_user(void) {
     // Implement logic
-    return "petter";
+    // return "petter";
+    // test for null
+    return NULL;
 }
 
 bool am4_access_control_verify_password(const char * username, const char * password) {
@@ -26,6 +29,8 @@ bool am4_access_control_verify_password(const char * username, const char * pass
     if (strcmp(username, "petter") == 0 && strcmp(password, "hvaforno") == 0) {
         return true;
     } else if (strcmp(username, "espen") == 0 && strcmp(password, "hvaforno") == 0) {
+        return true;
+    } else if (strcmp(username, "qi") == 0 && strcmp(password, "123") == 0) {
         return true;
     }
     return false;
@@ -53,6 +58,8 @@ bool  am4_access_control_user_have_admin_rights(const char * username) {
         return true;
     } else if (strcmp(username, "espen") == 0) {
         return false;
+    } else if (strcmp(username, "qi") == 0) {
+        return true;
     }
     return false;
 }
@@ -122,8 +129,8 @@ char * am4_access_control_compute_passwordhash(const char * password) {
     return hash;
 }
 
-bool am4_access_control_distribute_database_file(const char * tmpfilename) {
-      if (tmpfilename == NULL) {
+bool am4_access_control_store_database_file(const char * tmpfilename) {
+    if (tmpfilename == NULL) {
         return false;
     }
 
@@ -136,14 +143,21 @@ bool am4_access_control_distribute_database_file(const char * tmpfilename) {
     return true;
 }
 
-// Lock the database file
-bool am4_access_control_lock_database_file(void) {
-    return true;
+const char * am4_access_control_distribute_database_file() {
+    static bool fishy = false;
+    if (fishy) {
+        return "";
+    }
+    fishy = true;
+    // implement a timeout of 20 seconds
+    sleep(5);
+    return "qis-Mac vegwest-Linux";
 }
 
-// Discard the lock on the database file
-bool am4_access_control_discard_database_lock(void) {
-    return true;
+
+// Get the system hostname (used for access management)
+const char * am4_access_control_get_hostname(void) {
+    return "qis-Mac";
 }
 
 // Helper function to check password complexity
